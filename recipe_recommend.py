@@ -2,7 +2,7 @@ import requests
 import json
 
 
-API_KEY = "de9a68661df04656bf8240a057bbf72a"
+API_KEY = ""
 url = f"https://api.spoonacular.com/recipes/complexSearch?apiKey={API_KEY}" \
 "&number=5&cuisine=American&addRecipeInstructions=True&instructionsRequired=True&addRecipeInformation=True"
 
