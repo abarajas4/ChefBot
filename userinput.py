@@ -12,7 +12,7 @@ def get_dietary_restrictions():
         "Whole30"
     }
     selected_restriction = []
-    initial = input("Do you have any dietary restrictions? y/n: ")
+    initial = input("\nDo you have any dietary restrictions? y/n: ")
     initial.lower()
 
     if initial == "n": 
@@ -40,7 +40,7 @@ If you have more than one diet, please separate the values with a comma\n""")
     if mistake == "n":
         get_dietary_restrictions()
 
-    return selected_restriction
+    return ",".join(selected_restriction)
 
 def get_cuisines():
     options = {
@@ -96,7 +96,7 @@ Enter as many as you like from the list below by separating names with a comma\n
     if mistake == "n":
         get_cuisines()
 
-    return selected_cuisines
+    return ",".join(selected_cuisines)
 
 def get_meal_type(): 
     options = {
@@ -130,7 +130,7 @@ Please choose options from the list below, separating names with comma\n""")
     mistake.lower()
     if mistake == "n":
         get_meal_type()
-    return selected_mealtype
+    return ",".join(selected_mealtype)
 
 def get_serving_size(): 
     print("\nOur recipes can serve anywhere from 1 person to 8 people")
@@ -139,7 +139,7 @@ def get_serving_size():
     mistake = input("\nIs this correct? y/n: ")
     if mistake.lower() == "n":
         get_serving_size()
-    return user_input.strip()
+    return int(user_input.strip())
 
 def get_num_of_meals():
     print("\nPlease let us know how many meals you would like us to help plan.")
@@ -148,11 +148,11 @@ def get_num_of_meals():
     mistake = input("\nIs this correct? y/n: ")
     if mistake.lower() == "n":
         get_num_of_meals()
-    return user_input.strip()
+    return int(user_input.strip())
 
 
 #get_dietary_restrictions()
 #get_cuisines()
 #get_meal_type()
 #get_serving_size()
-get_num_of_meals()
+#get_num_of_meals()
