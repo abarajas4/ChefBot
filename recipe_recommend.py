@@ -17,7 +17,7 @@ response = requests.get(url)
 data = response.json()
 
 def recipe_list(data):
-   result = ""
+   result = []
    num = 1
    for recipe in data['results']:
       title = recipe["title"]
@@ -29,5 +29,5 @@ def recipe_list(data):
       num += 1
    return result
       
-
-print(recipe_list(data))
+if __name__ == "__main__":
+   print(recipe_list(data))
