@@ -18,15 +18,12 @@ data = response.json()
 
 def recipe_list(data):
    result = []
-   num = 1
    for recipe in data['results']:
       title = recipe["title"]
       source_url = recipe["sourceUrl"]
       serving_price= (recipe["pricePerServing"]/100)
       servings = recipe["servings"]
       totalPrice = round(serving_price * servings, 2)
-      result += f"{title},{source_url},{str(totalPrice)}\n"
-      num += 1
    return result
       
 if __name__ == "__main__":
