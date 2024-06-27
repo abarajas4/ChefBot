@@ -43,6 +43,10 @@ def add_recipe_to_db(title, source_url, price):
         query = db.text("INSERT INTO recipes (title, source_url, price) VALUES (:title, :source_url, :price)")
         connection.execute(query, {"title": title, "source_url": source_url, "price": price})
 
+def fetch_all_recipes():
+    with engine.connect() as connection:
+        query_result = connection.execute(db.text("SELECT * FROM recipes;")).fetchall()
+        return pd.DataFrame(query_result, columns=['recipe_id', 'title', 'source_url', 'price'])
 
 def main():
     # Create tables
@@ -57,10 +61,8 @@ def main():
         add_recipe_to_db(title, source_url, float(price))
     
     # Fetch and display all recipes from the database
-    with engine.connect() as connection:
-        query_result = connection.execute(db.text("SELECT * FROM recipes;")).fetchall()
-        recipes_df = pd.DataFrame(query_result, columns=['recipe_id', 'title', 'source_url', 'price'])
-        print(recipes_df)
+    recipes_df = fetch_all_recipes()
+    print(recipes_df)
 
 if __name__ == "__main__":
     main()
