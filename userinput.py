@@ -1,10 +1,3 @@
-
-
-"""
-types a user can input: cuisine, diet, 
-min/max servings, calories, protein
-"""
-
 def get_dietary_restrictions():
     options = {
         "Gluten Free", 
@@ -19,7 +12,7 @@ def get_dietary_restrictions():
         "Whole30"
     }
     selected_restriction = []
-    initial = input("Do you have any dietary restrictions? y/n: ")
+    initial = input("\nDo you have any dietary restrictions? y/n: ")
     initial.lower()
 
     if initial == "n": 
@@ -47,7 +40,7 @@ If you have more than one diet, please separate the values with a comma\n""")
     if mistake == "n":
         get_dietary_restrictions()
 
-    return selected_restriction
+    return ",".join(selected_restriction)
 
 def get_cuisines():
     options = {
@@ -103,8 +96,63 @@ Enter as many as you like from the list below by separating names with a comma\n
     if mistake == "n":
         get_cuisines()
 
-    return selected_cuisines
+    return ",".join(selected_cuisines)
+
+def get_meal_type(): 
+    options = {
+        "main course", 
+        "side dish", 
+        "appetizer", 
+        "salad",
+        "breakfast", 
+        "soup", 
+        "snack"
+    }
+    selected_mealtype = []
+    print("""\nWhat type of meal recipes would you like to receive?
+Please choose options from the list below, separating names with comma\n""")
+    
+    for option in options:
+        print(option)
+    
+    user_input = input("\nSelect your preferred dish types: ")
+    dishes = user_input.split(",")
+
+    for dish in dishes:
+        if dish.strip() in options:
+            selected_mealtype.append(dish.strip())
+    
+    print("\nYou have selected preference for these meals:")
+    for dish in selected_mealtype:
+        print(dish)
+    
+    mistake = input("\nAre these correct? y/n: ")
+    mistake.lower()
+    if mistake == "n":
+        get_meal_type()
+    return ",".join(selected_mealtype)
+
+def get_serving_size(): 
+    print("\nOur recipes can serve anywhere from 1 person to 8 people")
+    user_input = input("\nHow many people will you be cooking for? Please enter an integer: ")
+    print("\nYou have selected recipes with serving sizes of at least " + user_input.strip()) 
+    mistake = input("\nIs this correct? y/n: ")
+    if mistake.lower() == "n":
+        get_serving_size()
+    return int(user_input.strip())
+
+def get_num_of_meals():
+    print("\nPlease let us know how many meals you would like us to help plan.")
+    user_input = input("\nInput a number between 1-25 for the amount of recipes you will receive: ")
+    print("\nYou have selected to receive " + user_input.strip() + " meal(s)")
+    mistake = input("\nIs this correct? y/n: ")
+    if mistake.lower() == "n":
+        get_num_of_meals()
+    return int(user_input.strip())
 
 
-get_dietary_restrictions()
-get_cuisines()
+#get_dietary_restrictions()
+#get_cuisines()
+#get_meal_type()
+#get_serving_size()
+#get_num_of_meals()
