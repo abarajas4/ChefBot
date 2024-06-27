@@ -143,7 +143,7 @@ def get_serving_size():
 
 def get_num_of_meals():
     print("\nPlease let us know how many meals you would like us to help plan.")
-    user_input = input("\nInput a number between 1-25 for the amount of recipes you will receive: ")
+    user_input = input("\nInput a number between 1-25 for the number of recipes you will receive: ")
     print("\nYou have selected to receive " + user_input.strip() + " meal(s)")
     mistake = input("\nIs this correct? y/n: ")
     if mistake.lower() == "n":
