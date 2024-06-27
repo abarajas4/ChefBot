@@ -150,9 +150,5 @@ def get_num_of_meals():
         get_num_of_meals()
     return int(user_input.strip())
 
-
-#get_dietary_restrictions()
-#get_cuisines()
-#get_meal_type()
-#get_serving_size()
-#get_num_of_meals()
+if __name__ == "__main__": 
+    get_num_of_meals()

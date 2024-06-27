@@ -27,16 +27,8 @@ def fetch_random_recipe(diet=None, cuisines=None, meal_type=None, serving_size=N
 
 engine = db.create_engine('sqlite:///chefbot.db')
 
-def create_tables():
-    metadata = db.MetaData()
-    
-    recipes = db.Table('recipes', metadata,
-                       db.Column('recipe_id', db.Integer, primary_key=True, autoincrement=True),
-                       db.Column('title', db.String),
-                       db.Column('source_url', db.String), 
-                       db.Column('price', db.Float))
-    
-    metadata.create_all(engine)
+#def create_tables():
+
 
 def add_recipe_to_db(title, source_url, price):
     with engine.connect() as connection:
@@ -49,9 +41,15 @@ def fetch_all_recipes():
         return pd.DataFrame(query_result, columns=['recipe_id', 'title', 'source_url', 'price'])
 
 def main():
-    # Create tables
-    create_tables()
+    metadata = db.MetaData()
     
+    recipes = db.Table('recipes', metadata,
+        db.Column('recipe_id', db.Integer, primary_key=True, autoincrement=True),
+        db.Column('title', db.String),
+        db.Column('source_url', db.String), 
+        db.Column('price', db.Float))
+    
+    metadata.create_all(engine)
     # Fetch recipes data from recipe_recommend function
     data = recipe_recommend.recipe_list(recipe_recommend.data)
 

@@ -8,7 +8,7 @@ meal_type = userinput.get_meal_type()
 meals = userinput.get_num_of_meals()
 serving_size = userinput.get_serving_size()
 
-API_KEY = ""
+API_KEY = "de9a68661df04656bf8240a057bbf72a"
 url = f"https://api.spoonacular.com/recipes/complexSearch?apiKey={API_KEY}" \
 f"&number={meals}&cuisine={cuisines}&diet={dietary}&type={meal_type}" \
 f"&minServings={serving_size}&addRecipeInformation=True"
