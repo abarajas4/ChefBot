@@ -16,12 +16,18 @@ f"&minServings={serving_size}&addRecipeInformation=True"
 response = requests.get(url)
 data = response.json()
 
-for recipe in data['results']:
-   title = recipe["title"]
-   source_url = recipe["sourceUrl"]
-   serving_price= (recipe["pricePerServing"]/100)
-   servings = recipe["servings"]
-   totalPrice = serving_price * servings
-   print(title)
-   print(round(totalPrice, 2))
-   print(source_url)
+def recipe_list(data):
+   result = ""
+   num = 1
+   for recipe in data['results']:
+      title = recipe["title"]
+      source_url = recipe["sourceUrl"]
+      serving_price= (recipe["pricePerServing"]/100)
+      servings = recipe["servings"]
+      totalPrice = round(serving_price * servings, 2)
+      result += f"{title},{source_url},{str(totalPrice)}\n"
+      num += 1
+   return result
+      
+
+print(recipe_list(data))
