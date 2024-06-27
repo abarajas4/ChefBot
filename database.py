@@ -39,10 +39,6 @@ def create_tables():
     metadata.create_all(engine)
 
 def add_recipe_to_db(title, source_url, price):
-    df = pd.DataFrame([recipe])
-    df.to_sql('recipes', con=engine, if_exists='replace', index=False)
-
-def fetch_all_recipes():
     with engine.connect() as connection:
         query = db.text("INSERT INTO recipes (title, source_url, price) VALUES (:title, :source_url, :price)")
         connection.execute(query, {"title": title, "source_url": source_url, "price": price})
