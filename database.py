@@ -6,7 +6,7 @@ import recipe_recommend
 
 # API Configuration
 API_URL = "https://api.spoonacular.com/recipes/random"
-API_KEY = "de9a68661df04656bf8240a057bbf72a"
+API_KEY = ""
 # Database Configuration
 engine = db.create_engine('sqlite:///chefbot.db')
 
