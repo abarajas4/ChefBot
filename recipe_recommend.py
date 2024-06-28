@@ -14,8 +14,6 @@ def recipe_list(data):
       result.append([title, totalPrice, source_url])
    return result
 
-def print_bold(text):
-    return f"\033[1m{text}\033[0m"
 
 def main(): 
    dietary = userinput.get_dietary_restrictions()
