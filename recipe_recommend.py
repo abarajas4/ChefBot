@@ -1,6 +1,7 @@
 import requests 
 import json
 import userinput
+import pandas as pd
 
 def recipe_list(data):
    result = []
@@ -46,7 +47,14 @@ def main():
       print(f"    {result}")
 
    print("\nThank you for choosing ChefBot. We hope you enjoy your meals!\n")
-
+   
+   #recipes_data = recipe_list(data)
+   # Define the column names
+   columns = ["Recipe", "Price", "Link"]
+   # Create a DataFrame from the nested list
+   df = pd.DataFrame(recipes, columns=columns)
+   # Display the table
+   print(df)
 
 if __name__ == "__main__":
    print("\nWelcome to ChefBot, the #1 program for designing your personal meal plan\n")
