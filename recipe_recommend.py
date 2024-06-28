@@ -40,8 +40,7 @@ def main():
         title, price, source_url = recipe
         print(f"\nRecipe {i}: {title}")
         print(f"    Total Price of Recipe: ${price}")
-        sen = """Learn more about the recipe,
-        including ingredients and instructions for preparation"""
+        sen = "Learn more about the recipe (Click me)"
         hyperlink = f"\033]8;;{source_url}\a{sen}\033]8;;\a"
         result += hyperlink + "\n"
         print(f"    {result}")
@@ -53,7 +52,7 @@ def main():
     # Create a DataFrame from the nested list
     df = pd.DataFrame(recipes, columns=columns)
     # Display the table
-    #print(df)
+    print(df)
 
 
 if __name__ == "__main__":
