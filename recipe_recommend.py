@@ -45,6 +45,24 @@ def main():
       result += hyperlink + "\n"
       print(f"    {result}")
 
+   print("\nThank you for choosing ChefBot. We hope you enjoy your meals!\n")
+
 
 if __name__ == "__main__":
-   main()
+   print("\nWelcome to ChefBot, the #1 program for designing your personal meal plan\n")
+   print("So how does ChefBot work?\n")
+   print("""     Chefbot will ask you a range of questions, from your dietary restrictions, 
+     to your preferred cuisines, and even how many meals you would like in your meal plan\n""")
+   print("""     By giving ChefBot the most accurate information about yourself, we can tailor
+     your mealplan directly to your wants and needs\n""")
+   print("""     Along with the name of a diverse set of dishes, ChefBot will include information
+     on the price, ingredients, and preparation instructions to ensure any recipe on your
+     meal plan is accessible and easy to follow along\n""")
+   print("""     Through ChefBot, we want to make cooking easier for all students to avoid any nightly 
+     ramen or otherwise plain meals. Let's make cooking fun!\n""")
+   
+   user_input = input("How does that sound? Are you ready to get started with ChefBot? y/n: ")
+   if user_input.lower() == "y":
+      main()
+   else:
+      print("\nWe're sorry to hear that. We hope to see you again soon!\n")
