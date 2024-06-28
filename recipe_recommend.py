@@ -22,7 +22,7 @@ def main():
     meals = userinput.get_num_of_meals()
     serving_size = userinput.get_serving_size()
 
-    A_KEY = "de9a68661df04656bf8240a057bbf72a"
+    A_KEY = ""
     url = f"https://api.spoonacular.com/recipes/complexSearch?apiKey={A_KEY}" \
           f"&number={meals}&cuisine={cuisines}&diet={dietary}" \
           f"&type={meal_type}&minServings={serving_size}" \
