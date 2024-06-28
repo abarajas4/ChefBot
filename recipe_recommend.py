@@ -53,7 +53,7 @@ def main():
     # Create a DataFrame from the nested list
     df = pd.DataFrame(recipes, columns=columns)
     # Display the table
-    print(df)
+    #print(df)
 
 
 if __name__ == "__main__":
