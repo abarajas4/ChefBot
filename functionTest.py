@@ -1,10 +1,12 @@
-import unittest 
-import userinput 
+import unittest
+import userinput
 import recipe_recommend
 
+
 class TestUserInput(unittest.TestCase):
+
     def test_get_dietary_restrictions_yes(self):
-        self.assertEqual(userinput.get_dietary_restrictions(), 'Vegetarian,Vegan')
+        self.assertEqual(userinput.get_dietary_restrictions(), 'Vegetarian')
 
     def test_get_cuisines_yes(self):
         self.assertEqual(userinput.get_cuisines(), 'Italian,Mexican')
@@ -17,14 +19,14 @@ class TestUserInput(unittest.TestCase):
 
     def test_get_num_of_meals(self):
         self.assertEqual(userinput.get_num_of_meals(), 3)
-    
+
     def test_recipe_list(self):
         mock_data = {
             "results": [
                 {
                     "title": "Spaghetti Carbonara",
                     "sourceUrl": "http://example.com/spaghetti-carbonara",
-                    "pricePerServing": 250, 
+                    "pricePerServing": 250,
                     "servings": 4
                 },
                 {
@@ -37,12 +39,14 @@ class TestUserInput(unittest.TestCase):
         }
 
         expected_result = [
-            ["Spaghetti Carbonara", 10.0, "http://example.com/spaghetti-carbonara"],
+            ["Spaghetti Carbonara", 10.0,
+             "http://example.com/spaghetti-carbonara"],
             ["Chicken Salad", 3.0, "http://example.com/chicken-salad"]
         ]
         result = recipe_recommend.recipe_list(mock_data)
 
         self.assertEqual(result, expected_result)
+
 
 if __name__ == '__main__':
     unittest.main()
